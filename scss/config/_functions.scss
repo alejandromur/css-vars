@@ -1,0 +1,9 @@
+// gets a specific value from the fake custom properties map
+// $vars is the map, you could find it @ variables.scss
+@function getCSSvar($key){
+  // @debug  map-keys($vars);
+  // @debug $key;
+  @if map-has-key($vars, $key){
+    @return map-get($vars, $key);
+  }
+} 

@@ -1,0 +1,17 @@
+// cssVars( <[ property ]>, <[ value ]>  )
+//
+// get a given property and value
+// creates a custom property for this scope
+// an applies it safely even for all browsers
+//
+// .element {
+//   @include cssVars("background-color", --primary-color);
+// }
+//
+@mixin cssVars($prop, $value) {
+  $var: getCSSvar($value);
+  #{$value}: $var;
+  
+  #{$prop}: $var;
+  #{$prop}: var(#{$value}, $var);
+}

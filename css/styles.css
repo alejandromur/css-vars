@@ -1,0 +1,33 @@
+*,
+*:after,
+*:before {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: inherit;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  --tertiary-color: #DDCABC;
+  background: #DDCABC;
+  background: var(--tertiary-color, #DDCABC); }
+  body h1 {
+    --primary-color: #B23A68;
+    color: #B23A68;
+    color: var(--primary-color, #B23A68);
+    --padded: 1rem;
+    padding: 1rem;
+    padding: var(--padded, 1rem);
+    --border: 2px solid #FAF3FD;
+    border-bottom: 2px solid #FAF3FD;
+    border-bottom: var(--border, 2px solid #FAF3FD);
+    text-align: center; }
+  body p {
+    margin: 0;
+    --secondary-color: #A67499;
+    color: #A67499;
+    color: var(--secondary-color, #A67499); }

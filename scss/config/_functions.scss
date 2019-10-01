@@ -1,9 +1,11 @@
 // gets a specific value from the fake custom properties map
 // $vars is the map, you could find it @ variables.scss
-@function getCSSvar($key){
-  // @debug  map-keys($vars);
-  // @debug $key;
-  @if map-has-key($vars, $key){
+@function getCSSvar($key) {
+  @if map-has-key($vars, $key) {
     @return map-get($vars, $key);
+  } @else {
+    @warn $key + ' is not a valid variable name';
+    // Lime is an horrible & not undercover color so it is perfect to highlight an error
+    @return unquote('lime');
   }
-} 
+}

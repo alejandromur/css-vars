@@ -1,17 +1,41 @@
-// cssVars( <[ property ]>, <[ value ]>  )
+// cssVars( <[map]>(<[ property ]>: <[ value ]>)  )
 //
-// get a given property and value
-// creates a custom property for this scope
-// an applies it safely even for all browsers
+// get a given map
+// the mixin loops through it and get from the original variables map
+// the current value and apply it using a single value and
+// a custom property with its fallback so it is available for all browsers
 //
 // .element {
-//   @include cssVars("background-color", --primary-color);
+//   @include cssVars(
+//    (
+//      background-color: --primary-color,
+//      color: --secondary-color
+//    )
+//  );
 // }
 //
-@mixin cssVars($prop, $value) {
-  $var: getCSSvar($value);
-  #{$value}: $var;
-  
-  #{$prop}: $var;
-  #{$prop}: var(#{$value}, $var);
+@mixin cssVars($map) {
+  @if (type-of($map) == 'map') {
+    @each $prop in $map {
+      $key: nth($prop, 1);
+      $value: nth($prop, 2);
+
+      $var: getCSSvar($value);
+
+      #{$key}: $var;
+      #{$key}: var(#{$value}, $var);
+    }
+  } @else {
+    @warn 'Consider to use a MAP instead of a ' + type-of($map) + 'u son of a ...';
+
+    @if type-of($map == 'list') {
+      $key: nth($map, 1);
+      $value: nth($map, 2);
+
+      $var: getCSSvar($value);
+
+      #{$key}: $var;
+      #{$key}: var(#{$value}, $var);
+    }
+  }
 }

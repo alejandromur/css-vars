@@ -1,20 +1,30 @@
 body {
+  @include cssVars(
+    (background, --tertiary-color)
+  ); // not the way as its intended but using it with a list
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  @include cssVars(background, --tertiary-color);
-  
+
   h1 {
-    @include cssVars(color, --primary-color);
-    @include cssVars(padding, --padded);
-    @include cssVars(border-bottom, --border);
+    @include cssVars(
+      (
+        color: --secondary-color,
+        padding: --padded,
+        border-bottom: --border,
+      )
+    ); // using a map is the best way to call the mixin
     text-align: center;
   }
-  
-  p {
+
+  small {
+    @include cssVars(
+      (
+        color: --secondar-color,
+      )
+    ); // this variable does not exist
     margin: 0;
-    @include cssVars(color, --secondary-color);
   }
 }

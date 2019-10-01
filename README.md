@@ -1,19 +1,19 @@
 # README
 
-A SCSS toolkit for use custom properties safely in production even for old browsers
+A Sass helper for use custom properties safely in production even for old browsers
 
 ### Description
 
-* The MIXIN calls a FUNCTION that returns from a map list a value which is applied to a property
+- A `@mixin` is called from the CSS selector using a map. Each value within the mixin calls a `@function` searching for its corresponding value previously declared. The value is returned and applied to the CSS selector as a simple CSS property and also using the `var()` function
 
 ### Version
 
-* 1.0.0
+- 1.1.0
 
 ### Dependencies
 
-* No dependencies
+- No dependencies
 
 ### How to implement
 
-* Just include the MIXIN and the FUNCTION in your SCSS file
+- Just include the `@mixin` and the `@function` in your Sass file
